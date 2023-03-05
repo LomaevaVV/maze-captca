@@ -1,3 +1,4 @@
+import React from 'react';
 import CellsRow from '../../components/cells-row/cells-row';
 import Header from '../../components/header/header';
 import { DEFAULT_MAZE_SIZE } from '../../const';
@@ -9,19 +10,22 @@ export default function MazePage(): JSX.Element {
   window.console.log(cellsCoordinates);
 
   return (
-    <div className="">
+    <React.Fragment>
       <Header />
 
-      <main className="">
-        <div className="">
-          {cellsCoordinates.map((item) => (
-            <CellsRow
-              key={item[0][0]}
-              cells={item}
-            />)
-          )}
+      <main className="page-main">
+        <div className="page-main__wrapper wrapper">
+          <h1 className="page-main__title title">Лабиринт</h1>
+          <div className="page-main__maze maze">
+            {cellsCoordinates.map((item) => (
+              <CellsRow
+                key={item[0][0]}
+                cells={item}
+              />)
+            )}
+          </div>
         </div>
       </main>
-    </div>
+    </React.Fragment>
   );
 }

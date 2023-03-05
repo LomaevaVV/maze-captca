@@ -1,0 +1,190 @@
+/*Colors*/
+:root {
+  --color-black: black;
+  --color-white: #ffffff;
+  --color-aqua-100: #caf3fc;
+  --color-aqua-400: #add7e0;
+  --color-aqua-700: #2c6c7a;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/oswaldmedium.woff2") format("woff2"),
+    url("../fonts/oswaldmedium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/oswaldregular.woff2") format("woff2"),
+    url("../fonts/oswaldregular.woff") format("woff");
+  font-display: swap;
+}
+
+/*Sticky-footer -> height of page*/
+html {
+  height: 100%;
+}
+
+/* CONTAINER /
+specify the page_width */
+
+body {
+  min-height: 100%;
+  font-family: "Oswald", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: var(--color-aqua-700);
+  background-color: var(--color-white);
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding-left: 75px;
+  padding-right: 75px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 36px;
+  text-align: left;
+  font-weight: 500;
+}
+
+/*Header*/
+.navigation__list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation__item {
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  margin-right: 36px;
+}
+
+
+.navigation__link {
+  font-size: 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-aqua-700);
+}
+
+/* Main Page */
+.products {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.products__item {
+  margin-right: 36px;
+}
+
+.products__link {
+  font-size: 22px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-aqua-700);
+}
+
+.page-main__about-me {
+  width: 800px;
+  line-height: 30px;
+}
+
+/* Maze */
+.maze {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.maze__row {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.maze__row:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.maze__cell {
+  flex-grow: 1;
+  width: auto;
+  display: block;
+  border: 2px solid var(--color-aqua-400);
+  border-radius: 5px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-aqua-100);
+}
+
+.maze__cell:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+/*Brackets balance*/
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__textarea {
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 18px;
+  width: 300px;
+  min-height: 150px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-aqua-700);
+  border-radius: 5px;
+}
+
+.form__button {
+  box-sizing: border-box;
+  margin-right: auto;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 300px;
+  border: 2px solid var(--color-aqua-700);
+  border-radius: 5px;
+}
+
+

@@ -3,18 +3,18 @@ import { AppRoute } from '../../const';
 
 export default function Header(): JSX.Element {
   return (
-    <header className="">
-      <div className="">
-        <nav className="main-nav header__main-nav">
-          <ul className="main-nav__list">
-            <li className="main-nav__item">
-              <Link className="main-nav__link" to={AppRoute.Main}>Главная</Link>
+    <header className="page-header">
+      <div className="page-header__wrapper wrapper">
+        <nav className="page-header__navigation navigation">
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <Link className="navigation__link" to={AppRoute.Main}>Главная</Link>
             </li>
-            <li className="main-nav__item">
-              <Link className="main-nav__link" to={AppRoute.Maze}>Лабиринт</Link>
+            <li className="navigation__item">
+              <Link className="navigation__link" to={AppRoute.Maze}>Лабиринт</Link>
             </li>
-            <li className="main-nav__item">
-              <Link className="main-nav__link" to={AppRoute.BracketsBalance}>Баланс Скобок</Link>
+            <li className="navigation__item">
+              <Link className="navigation__link" to={AppRoute.BracketsBalance}>Баланс Скобок</Link>
             </li>
           </ul>
         </nav>

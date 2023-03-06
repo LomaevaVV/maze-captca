@@ -39,7 +39,7 @@ export default function Modal({modalState}: ModalProps): JSX.Element {
               && <MazeError onClick={handleClickCloseButton}/>}
 
             {(modalState === ModalState.BracketsBalanceError || modalState === ModalState.BracketsBalanceSuccess)
-              && <BracketsBalance onClick={handleClickCloseButton}/>}
+              && <BracketsBalance onClick={handleClickCloseButton} modalState={modalState}/>}
           </div>
         </div>
       </RemoveScroll>

@@ -43,3 +43,18 @@ export const сoordinatesOfPath = (n: number) => {
   }
   return сoordinatesOfPathArr;
 };
+
+const haveSameLength = (text: string, a: RegExp, b: RegExp) => (text.match(a) || [] ).length === (text.match(b) || [] ).length;
+
+export const isBalanced = (text: string) => {
+  const arr = [
+    [ /\(/gm, /\)/gm ], [ /\{/gm, /\}/gm ], [ /\[/gm, /\]/gm ]
+  ];
+  let i = arr.length;
+  let isClean = true;
+
+  while( i-- && isClean ){
+    isClean = haveSameLength( text, arr[i][0], arr[i][1] );
+  }
+  return isClean;
+};

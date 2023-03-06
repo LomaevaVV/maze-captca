@@ -1,14 +1,23 @@
+import { ModalState } from '../../../const';
+
 type BracketsBalanceProps = {
   onClick: () => void;
+  modalState: string;
 }
 
-export default function BracketsBalance({onClick}: BracketsBalanceProps): JSX.Element {
+export default function BracketsBalance({onClick, modalState}: BracketsBalanceProps): JSX.Element {
 
   return (
     <div className="modal__content">
-      <p className="title title--h4">
-        Баланс скобок соблюден
-      </p>
+      {modalState === ModalState.BracketsBalanceSuccess
+        ?
+        <p className="title title--h4 title--success">
+            Баланс скобок соблюден
+        </p>
+        :
+        <p className="title title--h4 title--error">
+            Баланс скобок не соблюден
+        </p>}
       <svg
         className="modal__icon"
         width='80'
@@ -17,7 +26,12 @@ export default function BracketsBalance({onClick}: BracketsBalanceProps): JSX.El
       >
         <use xlinkHref='#icon-review-success' ></use>
       </svg>
-      <button onClick={onClick} className="cross-btn" type="button" aria-label="Закрыть попап">
+      <button
+        onClick={onClick}
+        className="cross-btn"
+        type="button"
+        aria-label="Закрыть попап"
+      >
         <svg width="10" height="10" aria-hidden="true">
           <use xlinkHref="#icon-close"></use>
         </svg>

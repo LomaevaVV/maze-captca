@@ -3,7 +3,11 @@ import { AppRoute, ModalState } from '../../const';
 import { useAppDispatch } from '../../hooks/index';
 import { changeModalState } from '../../store/action';
 
-export default function Header(): JSX.Element {
+type HeaderProps = {
+  page: string;
+}
+
+export default function Header({page}: HeaderProps): JSX.Element {
   const dispatch = useAppDispatch();
 
   return (
@@ -12,11 +16,16 @@ export default function Header(): JSX.Element {
         <nav className="page-header__navigation navigation">
           <ul className="navigation__list">
             <li className="navigation__item">
-              <Link className="navigation__link" to={AppRoute.Main}>Главная</Link>
+              <Link
+                className={`navigation__link ${page === AppRoute.Main ? 'is_active' : ''}`}
+                to={AppRoute.Main}
+              >
+                Главная
+              </Link>
             </li>
             <li className="navigation__item">
               <Link
-                className="navigation__link"
+                className={`navigation__link ${page === AppRoute.Maze ? 'is_active' : ''}`}
                 to={AppRoute.Maze}
                 onClick={() => dispatch(changeModalState(ModalState.MazeStart))}
               >
@@ -24,7 +33,12 @@ export default function Header(): JSX.Element {
               </Link>
             </li>
             <li className="navigation__item">
-              <Link className="navigation__link" to={AppRoute.BracketsBalance}>Баланс Скобок</Link>
+              <Link
+                className={`navigation__link ${page === AppRoute.BracketsBalance ? 'is_active' : ''}`}
+                to={AppRoute.BracketsBalance}
+              >
+                Баланс Скобок
+              </Link>
             </li>
           </ul>
         </nav>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import CellsRow from '../../components/cells-row/cells-row';
 import Header from '../../components/header/header';
-import { DEFAULT_MAZE_SIZE, ModalState } from '../../const';
+import { AppRoute, DEFAULT_MAZE_SIZE, ModalState } from '../../const';
 import { сoordinates } from '../../utils';
 import { useAppDispatch, useAppSelector } from '../../hooks/index';
 import PathOfArrows from '../../components/path/path';
@@ -26,7 +26,7 @@ export default function MazePage(): JSX.Element {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header page={AppRoute.Maze}/>
 
       <main className="page-main">
         <div className="page-main__wrapper wrapper">

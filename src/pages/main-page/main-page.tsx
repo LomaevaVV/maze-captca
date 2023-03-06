@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../../components/header/header';
+import { AppRoute } from '../../const';
 
 export default function MainPage(): JSX.Element {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header page={AppRoute.Main}/>
 
       <main className="page-main">
         <div className="page-main__wrapper wrapper">
@@ -15,7 +16,8 @@ export default function MainPage(): JSX.Element {
           </p>
           <p className="page-main__about-me">
             У меня огромный опыт в ИТ в качестве аналитика/тим-лида аналитики (подробнее:
-            <a href='https://hh.ru/resume/a73f4e05ff0bbe65bb0039ed1f4256614f7574'>резюме Системный аналитик</a>
+
+            <a href='https://hh.ru/resume/a73f4e05ff0bbe65bb0039ed1f4256614f7574'>  резюме Системный аналитик</a>
             )
           </p>
           <p className="page-main__about-me">

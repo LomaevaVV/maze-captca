@@ -12,7 +12,7 @@ export default function MazeError({onClick}: MazeStartProps): JSX.Element {
 
   return (
     <div className="modal__content">
-      <p className="title title--h4">
+      <p className="title title--h4 title--error">
         Выбранная ячейка
         <br/>
         не финишная

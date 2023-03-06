@@ -98,6 +98,10 @@ body {
   color: var(--color-aqua-700);
 }
 
+.navigation__link.is_active {
+  border-bottom: 3px solid darkgrey;
+}
+
 /* Main Page */
 .products {
   list-style-type: none;
@@ -375,6 +379,14 @@ body {
   margin-bottom: 20px;
   text-align: center;
   font-size: 24px;
+}
+
+.title--success {
+  color: green
+}
+
+.title--error {
+  color: darkred
 }
 
 .modal, .modal__wrapper {

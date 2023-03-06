@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import CellsRow from '../../components/cells-row/cells-row';
 import Header from '../../components/header/header';
-import { DEFAULT_MAZE_SIZE } from '../../const';
-import { сoordinates, сoordinatesOfPath } from '../../utils';
-import { useAppDispatch } from '../../hooks/index';
-import { setMazePathCoord } from '../../store/action';
+import { DEFAULT_MAZE_SIZE, ModalState } from '../../const';
+import { сoordinates } from '../../utils';
+import { useAppDispatch, useAppSelector } from '../../hooks/index';
 import PathOfArrows from '../../components/path/path';
+import Modal from '../../components/modal/modal';
+import { changeModalState } from '../../store/action';
 
 export default function MazePage(): JSX.Element {
   const dispatch = useAppDispatch();
   const cellsCoordinates = сoordinates(DEFAULT_MAZE_SIZE);
+  const modalState = useAppSelector((state) => state.modalState);
+  const mazeIsActive = useAppSelector((state) => state.mazeIsActive);
+  window.console.log(modalState);
 
-  const coordinatesPathArr: number[][] = сoordinatesOfPath(DEFAULT_MAZE_SIZE);
-  dispatch(setMazePathCoord(coordinatesPathArr));
+  const isRenderedRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    if (!isRenderedRef.current) {
+      dispatch(changeModalState(ModalState.MazeStart));
+      isRenderedRef.current = true;
+    }
+  }, );
 
   return (
     <React.Fragment>
@@ -26,11 +36,13 @@ export default function MazePage(): JSX.Element {
               <CellsRow
                 key={item[0][0]}
                 cells={item}
+                mazeIsActive={mazeIsActive}
               />)
             )}
-            <PathOfArrows />
+            {mazeIsActive === true && <PathOfArrows />}
           </div>
         </div>
+        {modalState !== ModalState.Closed && <Modal modalState={modalState}/>}
       </main>
     </React.Fragment>
   );

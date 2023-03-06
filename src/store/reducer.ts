@@ -1,17 +1,23 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { DEFAULT_MAZE_SIZE } from '../const';
-import { setFinishCell, setMazeSize, setMazePathCoord } from './action';
+import { DEFAULT_MAZE_SIZE, ModalState } from '../const';
+import { setFinishCell, setMazeSize, setMazePathCoord, changeModalState, changeMazeIsActive, changePathIsActive } from './action';
 
 type DataBonus = {
   mazeSize: number;
-  mazeWayCoord: number[][];
+  mazePathCoord: number[][];
   finishCell: number[];
+  modalState: string;
+  mazeIsActive: boolean;
+  pathIsActive: boolean;
 };
 
 const initialState: DataBonus = {
   mazeSize: DEFAULT_MAZE_SIZE,
-  mazeWayCoord: [],
-  finishCell: []
+  mazePathCoord: [],
+  finishCell: [],
+  modalState: ModalState.Closed,
+  mazeIsActive: false,
+  pathIsActive: false
 };
 
 export const reducer = createReducer(
@@ -22,10 +28,19 @@ export const reducer = createReducer(
         state.mazeSize = action.payload;
       })
       .addCase(setMazePathCoord, (state, {payload}) => {
-        state.mazeWayCoord = payload;
+        state.mazePathCoord = payload;
       })
       .addCase(setFinishCell, (state, {payload}) => {
         state.finishCell = payload;
+      })
+      .addCase(changeModalState, (state, action: {payload: string}) => {
+        state.modalState = action.payload;
+      })
+      .addCase(changeMazeIsActive, (state, action: {payload: boolean}) => {
+        state.mazeIsActive = action.payload;
+      })
+      .addCase(changePathIsActive, (state, action: {payload: boolean}) => {
+        state.pathIsActive = action.payload;
       });
   }
 );

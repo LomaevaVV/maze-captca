@@ -12,3 +12,12 @@ export enum ArrowDirection {
   Right = 'arrow--right',
   Left = 'arrow--left',
 }
+
+export enum ModalState {
+  Closed = 'closed',
+  MazeStart = 'mazeStart',
+  MazeError = 'mazeError',
+  MazeSuccess = 'basketDelItem',
+  BracketsBalanceError = 'basketSuccess',
+  BracketsBalanceSuccess = 'orderSuccess'
+}

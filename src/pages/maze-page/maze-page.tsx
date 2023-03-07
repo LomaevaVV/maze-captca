@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import CellsRow from '../../components/cells-row/cells-row';
 import Header from '../../components/header/header';
-import { AppRoute, DEFAULT_MAZE_SIZE, ModalState } from '../../const';
+import { AppRoute, ModalState } from '../../const';
 import { сoordinates } from '../../utils';
 import { useAppDispatch, useAppSelector } from '../../hooks/index';
 import PathOfArrows from '../../components/path/path';
@@ -10,10 +10,10 @@ import { changeModalState } from '../../store/action';
 
 export default function MazePage(): JSX.Element {
   const dispatch = useAppDispatch();
-  const cellsCoordinates = сoordinates(DEFAULT_MAZE_SIZE);
+  const mazeSize = useAppSelector((state) => state.mazeSize);
+  const cellsCoordinates = сoordinates(mazeSize);
   const modalState = useAppSelector((state) => state.modalState);
   const mazeIsActive = useAppSelector((state) => state.mazeIsActive);
-  window.console.log(modalState);
 
   const isRenderedRef = useRef<boolean>(false);
 

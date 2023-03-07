@@ -392,3 +392,24 @@ body {
 .modal, .modal__wrapper {
   display: flex;
 }
+
+.modal__inputs {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal__input {
+  border-radius: 5px;
+  display: flex;
+  text-align: center;
+}
+
+.input--label {
+  display: block;
+  width: 150px;
+  word-wrap: break-word;
+  font-size: 18px;
+  margin-right: 10px;
+  text-align: left;
+}

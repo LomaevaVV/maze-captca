@@ -13,8 +13,6 @@ export default function BracketsBalance(): JSX.Element {
   const modalState = useAppSelector((state) => state.modalState);
 
   const onSubmitClickHandler = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    window.console.log(textareaData);
-    window.console.log(isBalanced(textareaData));
     isBalanced(textareaData)
       ? dispatch(changeModalState(ModalState.BracketsBalanceSuccess))
       : dispatch(changeModalState(ModalState.BracketsBalanceError));

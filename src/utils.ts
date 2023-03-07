@@ -44,17 +44,40 @@ export const сoordinatesOfPath = (n: number) => {
   return сoordinatesOfPathArr;
 };
 
-const haveSameLength = (text: string, a: RegExp, b: RegExp) => (text.match(a) || [] ).length === (text.match(b) || [] ).length;
+// const haveSameLength = (text: string, a: RegExp, b: RegExp) => (text.match(a) || [] ).length === (text.match(b) || [] ).length;
+
+// export const isBalanced = (text: string) => {
+//   const arr = [
+//     [ /\(/gm, /\)/gm ], [ /\{/gm, /\}/gm ], [ /\[/gm, /\]/gm ]
+//   ];
+//   let i = arr.length;
+//   let isClean = true;
+
+//   while( i-- && isClean ){
+//     isClean = haveSameLength( text, arr[i][0], arr[i][1] );
+//   }
+//   return isClean;
+// };
 
 export const isBalanced = (text: string) => {
-  const arr = [
-    [ /\(/gm, /\)/gm ], [ /\{/gm, /\}/gm ], [ /\[/gm, /\]/gm ]
-  ];
-  let i = arr.length;
-  let isClean = true;
+  const openers = '<{[(';
+  const closers = '>}])';
+  const arr = [];
+  let valid = true;
 
-  while( i-- && isClean ){
-    isClean = haveSameLength( text, arr[i][0], arr[i][1] );
+  for (let i = 0; i < text.length; i++) {
+    if (openers.indexOf(text[i]) >= 0) {
+      arr.push(openers.indexOf(text[i]));
+    } else if (closers.indexOf(text[i]) >= 0) {
+      if (closers.indexOf(text[i]) !== arr.pop()) {
+        valid = false;
+      }
+    }
   }
-  return isClean;
+
+  if (arr.length) {
+    valid = false;
+  }
+
+  return valid;
 };
